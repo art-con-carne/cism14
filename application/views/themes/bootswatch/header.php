@@ -33,4 +33,7 @@
       </div>
     </div>
     <div class="container">
+	<?php
+	echo bootswatchFeedback();
+	?>
 
