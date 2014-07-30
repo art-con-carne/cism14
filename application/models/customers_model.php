@@ -17,5 +17,12 @@ class Customers_model extends CI_Model {
 			return $this->db->get_where('test_Customers',array('customerID'=>$id));
 		}
 
-	}
+	}#end get_customers
+	
+	public function insert()
+	{
+		var_dump($_POST);
+		die;
+
+	}#end insert
 }

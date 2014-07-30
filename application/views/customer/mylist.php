@@ -19,6 +19,6 @@
 		echo '<p>Sorry, there just aren\'t any customers!</p>';
 	}
 
-	
+	echo anchor ('customer/add/','Add Customer');
 	$this->load->view($this->config->item('theme') . 'footer');
 ?>
