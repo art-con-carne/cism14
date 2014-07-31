@@ -4,32 +4,26 @@ class Customer extends CI_Controller {
 
 	public function index($id=0)
 	{
-	
 		$this->load->model('Customers_model');
 		$this->config->set_item('title','Customer Title');
 		$data['query'] = $this->Customers_model->get_customers($id);
 		$this->load->view('customer/default',$data);
-		
 	}
 	
 	public function mylist($id=0)
 	{
-	
 		$this->load->model('Customers_model');
 		$this->config->set_item('title','List of Customers');
 		$data['query'] = $this->Customers_model->get_customers($id);
 		$this->load->view('customer/mylist',$data);
-		
 	}
 	
 	public function view($id=0)
 	{
-	
 		$this->load->model('Customers_model');
 		$this->config->set_item('title','Customer Detail');
 		$data['query'] = $this->Customers_model->get_customers($id);
 		$this->load->view('customer/view',$data);
-		
 	}
 	
 	public function add()
@@ -55,18 +49,16 @@ class Customer extends CI_Controller {
 		
 		}else{//insert data
 			$this->load->model('Customers_model');
-			$this->Customers_model->insert();
-			
-			
-			echo 'in controller';
+			#insert the data and return
+			$id = $this->Customers_model->insert();
+			#
+			$data['query'] = $this->Customers_model->get_customers($id);
+			#using custom feedback function to inform user
+			feedback('Customer successfully added!','success');
+			$this->load->view('customer/view',$data);
 
-		
-		
-		
 		}
 		
-
-
 	}#end insert()
 		
 	
